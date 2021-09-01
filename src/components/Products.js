@@ -12,7 +12,7 @@ export class Products extends Component {
                 <ul className="products d-inline-flex flex-wrap list-unstyled justify-content-between">
                     {this.props.products.map((product) =>{
                         return(
-                            <li className="mb-5" key={product._id}>
+                            <li className="mb-5 px-2" key={product._id}>
                                 <div className="product">
                                     <a className="text-capitalize text-dark" href={"#" + product._id}>
                                         <img src={product.image} alt={product.name}/>
