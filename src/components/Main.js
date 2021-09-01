@@ -1,4 +1,4 @@
-// from feature 1//
+// from feature 1 new//
 import React from 'react'
 
 const Main = () => {
