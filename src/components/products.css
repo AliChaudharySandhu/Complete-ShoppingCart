@@ -1,0 +1,17 @@
+.products{
+
+}
+.product{
+
+}
+.product a{
+    display: block;
+    max-width: 250px;
+}
+.product a:hover p{
+    color: #e4af11;
+}
+.product a img{
+    width: 100%;
+    height: auto;
+}
