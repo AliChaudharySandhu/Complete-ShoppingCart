@@ -55,9 +55,9 @@ class Main extends React.Component {
     render(){
 
         return (
-            <div className="container-fluid cart__main">
+            <div className="container-fluid products__main">
                 <div className="row">
-                    <div className="col-8 cart__container">
+                    <div className="col-8 products">
                         <Filter 
                             count={this.state.products.length}
                             size={this.state.size}
@@ -67,7 +67,7 @@ class Main extends React.Component {
                         />
                         <Products products={this.state.products} />
                     </div>
-                    <div className="col-4 4cart__sidebar">
+                    <div className="col-4 cart">
                         Cart Items
                     </div>
                 </div>
