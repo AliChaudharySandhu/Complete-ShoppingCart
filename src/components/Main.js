@@ -12,7 +12,7 @@ class Main extends React.Component {
             products: Data.products,
             size: "",
             sort: "",
-            cart: []
+            cart: localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")): [],
         }
         this.handleSort = this.handleSort.bind(this)
         this.handleSize = this.handleSize.bind(this)
@@ -33,7 +33,7 @@ class Main extends React.Component {
             
         
         this.setState({cart : cartItems})
-        console.log(cartItems)
+        localStorage.setItem("cart", JSON.stringify(cartItems))
     }
     removeFromCart = (item) =>{
         const afterRemoveCart = this.state.cart.filter((cartItem) =>{
@@ -41,6 +41,7 @@ class Main extends React.Component {
             
         })
         this.setState({cart: afterRemoveCart})
+        localStorage.setItem("cart", JSON.stringify(afterRemoveCart))
     }
     handleSort(e) {
         const value = e.target.value;
@@ -79,6 +80,9 @@ class Main extends React.Component {
         }
 
     }
+    createOrder = (order) =>{
+        order && alert("Here is your order " + order.name)
+    }
 
     render() {
 
@@ -96,7 +100,11 @@ class Main extends React.Component {
                         <Products products={this.state.products} addToCart={this.addToCart} />
                     </div>
                     <div className="col-4 cart">
-                        <Cart cart={this.state.cart} removeFromCart={this.removeFromCart}/>
+                        <Cart 
+                            cart={this.state.cart} 
+                            removeFromCart={this.removeFromCart}
+                            createOrder={this.createOrder}
+                            />
                     </div>
                 </div>
             </div>
