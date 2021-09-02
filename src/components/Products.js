@@ -20,7 +20,7 @@ export class Products extends Component {
                                     </a>
                                     <div className="product_price d-flex flex-row align-items-center justify-content-between">
                                         <p className="mb-0 mx-3">${product.price}</p>
-                                        <button className="btn btn-md btn-warning text-white">Add To Cart</button>
+                                        <button onClick={() => this.props.addToCart(product)} className="btn btn-md btn-warning text-white">Add To Cart</button>
                                     </div>
                                 </div>
                             </li>

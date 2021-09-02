@@ -1,0 +1,6 @@
+.cartitem > div:first-child {
+    max-width: 70px;
+}
+.cartitem > div img{
+    width: 100%;
+}
