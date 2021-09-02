@@ -3,6 +3,34 @@ import './cart.css'
 import { formateCurrency, formateTotal } from './utils'
 
 export class Cart extends Component {
+    constructor() {
+        super()
+        this.state = {
+            showCheckOut: true,
+            name: '',
+            email: '',
+            address: ''
+        }
+    }
+
+    handleInput = (e) =>{
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+        console.log(this.state.name)
+    }
+    createOrder = (e) =>{
+        e.preventDefault();
+
+        let order ={
+            name : this.state.name,
+            email : this.state.email,
+            address : this.state.address,
+            cart : this.props.cart
+        }
+    this.props.createOrder(order)
+    }
+
     render() {
         const { cart } = this.props
 
@@ -42,8 +70,62 @@ export class Cart extends Component {
                         <span className="mx-2 text-dark fw-bold">Total : {formateCurrency(cart.reduce((a, c) => {
                             return a += (c.count * c.price)
                         }, 0))}</span>
-                        <button className="btn btn-md btn-warning text-white">Proceed</button>
+                        
+                        <button className={`btn btn-md btn-warning text-white ${this.state.showCheckOut? 'opacity-0' : ''} `}
+                            onClick={() => this.setState({ showCheckOut: true })}
+                        >Proceed</button>
                     </div>
+                }
+                {this.state.showCheckOut && <div>
+
+                    <form action="" className="mt-5">
+                        <h4 className="text-dark text-center my-4">Fill the form to Proceed !</h4>
+                        <div className="form-group row">
+                            <label htmlFor="name" className="col-md-2 col-form-label">Name</label>
+                            <div className="col-md-10">
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Your name"
+                                    className="form-control"
+                                    onChange={this.handleInput}
+                                />
+
+                            </div>
+                        </div>
+                        <div className="form-group row my-3">
+                            <label htmlFor="email" className="col-md-2 col-form-label">Email</label>
+                            <div className="col-md-10">
+                                <input
+                                    type="email"
+                                    name="emali"
+                                    placeholder="email@example.com"
+                                    className="form-control"
+                                    onChange={this.handleInput}
+                                />
+
+                            </div>
+                        </div>
+                        <div className="form-group row my-3">
+                            <label htmlFor="address" className="col-md-2 col-form-label">Address</label>
+                            <div className="col-md-10">
+                                <input
+                                    type="text"
+                                    name="address"
+                                    placeholder="Your Address"
+                                    className="form-control"
+                                    onChange={this.handleInput}
+                                />
+
+                            </div>
+                        </div>
+                        <button className="btn btn-md btn-warning text-white offset-2 px-4 mt-3"
+                            onClick={(e) => this.createOrder(e)}
+                        >Checkout</button>
+
+                    </form>
+                </div>
+
                 }
 
             </>

@@ -4,5 +4,9 @@
 a{
     text-decoration: none;
 }
-body{
+form input:focus{
+    
+    border-color: #ffc107!important;
+    box-shadow: 0 0 0 0.1rem #ffc107!important;
+
 }
