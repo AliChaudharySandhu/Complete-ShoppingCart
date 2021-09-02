@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import './cart.css'
 import { formateCurrency, formateTotal } from './utils'
+import Fade from 'react-reveal/Fade'
 
 export class Cart extends Component {
     constructor() {
         super()
         this.state = {
-            showCheckOut: true,
+            showCheckOut: false,
             name: '',
             email: '',
-            address: ''
+            address: '',
+            error: ''
+
         }
     }
 
@@ -22,13 +25,19 @@ export class Cart extends Component {
     createOrder = (e) =>{
         e.preventDefault();
 
-        let order ={
-            name : this.state.name,
-            email : this.state.email,
-            address : this.state.address,
-            cart : this.props.cart
+        if(this.state.name && this.state.email && this.state.address){
+
+            let order ={
+                name : this.state.name,
+                email : this.state.email,
+                address : this.state.address,
+                cart : this.props.cart
+            }
+        this.props.createOrder(order)
+        } else{
+            this.setState({error: 'Something is missing !'})
         }
-    this.props.createOrder(order)
+
     }
 
     render() {
@@ -38,10 +47,11 @@ export class Cart extends Component {
             <>
                 <div className=" cart_header mt-3 pb-3 border-bottom border-1 border-secondary">
                     {cart.length === 0 ? <div> Cart is Empty </div> :
-                        <div>You have {cart.length} itmes in cart</div>
+                        <div className="mb-1">You have {cart.length} itmes in cart</div>
                     }
                 </div>
                 <div className="cart-container">
+                    <Fade left cascade>
                     <ul className="cartItems list-unstyled">
                         {cart.map((item) => {
                             return <li key={item._id} className=" cartitem d-flex flex-sm-column flex-lg-row justify-content-between align-items-center p-2 m-1">
@@ -63,6 +73,7 @@ export class Cart extends Component {
                             </li>
                         })}
                     </ul>
+                    </Fade>
                 </div>
 
                 {cart.length > 0 &&
@@ -76,8 +87,9 @@ export class Cart extends Component {
                         >Proceed</button>
                     </div>
                 }
-                {this.state.showCheckOut && <div>
-
+                {(cart.length > 0 && this.state.showCheckOut) && 
+                <Fade right cascade>
+                <div>
                     <form action="" className="mt-5">
                         <h4 className="text-dark text-center my-4">Fill the form to Proceed !</h4>
                         <div className="form-group row">
@@ -86,6 +98,7 @@ export class Cart extends Component {
                                 <input
                                     type="text"
                                     name="name"
+                                    required
                                     placeholder="Your name"
                                     className="form-control"
                                     onChange={this.handleInput}
@@ -99,6 +112,7 @@ export class Cart extends Component {
                                 <input
                                     type="email"
                                     name="emali"
+                                    required
                                     placeholder="email@example.com"
                                     className="form-control"
                                     onChange={this.handleInput}
@@ -106,12 +120,13 @@ export class Cart extends Component {
 
                             </div>
                         </div>
-                        <div className="form-group row my-3">
+                        <div className="form-group row my-3 mb-1">
                             <label htmlFor="address" className="col-md-2 col-form-label">Address</label>
                             <div className="col-md-10">
                                 <input
                                     type="text"
                                     name="address"
+                                    required
                                     placeholder="Your Address"
                                     className="form-control"
                                     onChange={this.handleInput}
@@ -119,13 +134,14 @@ export class Cart extends Component {
 
                             </div>
                         </div>
-                        <button className="btn btn-md btn-warning text-white offset-2 px-4 mt-3"
+                        {this.state.error && <p style={{fontSize: '12px', textAlign: 'end'}} className="text-danger m-0 offset-2">{this.state.error}</p> }
+                        <button type="submit" className="btn btn-md btn-warning text-white offset-2 px-4 mt-3"
                             onClick={(e) => this.createOrder(e)}
                         >Checkout</button>
 
                     </form>
                 </div>
-
+                </Fade>
                 }
 
             </>
