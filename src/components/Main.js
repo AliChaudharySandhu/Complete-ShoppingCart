@@ -59,7 +59,7 @@ class Main extends React.Component {
                 <div className="row">
                     <div className="col-8 cart__container">
                         <Filter 
-                            count={this.products?.length}
+                            count={this.state.products.length}
                             size={this.state.size}
                             sort={this.state.sort}
                             sortFilter={this.handleSort}
