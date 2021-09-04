@@ -1,3 +1,5 @@
+// Setting Up Server
+
 const express = require('express');
 const app = express()
 const shortid = require('shortid');
@@ -13,7 +15,7 @@ const Product = mongoose.model("Products", new mongoose.Schema({
     _id : { 
         type : String,
         default: shortid.generate()
-    },
+    },   
     image :{
         type: String,
         required : true

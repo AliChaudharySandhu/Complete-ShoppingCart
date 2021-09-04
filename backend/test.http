@@ -18,7 +18,7 @@
     
 # }
 
-# ----------------Delete
+# ----------------Delete Req
 delete http://localhost:8080/api/products/SG5aIPZOr/
 Content-Type: application/json
 
