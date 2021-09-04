@@ -80,4 +80,4 @@ app.put("/api/products/:id" , (req, res) =>{
     .then((data) => res.send(data))
     .catch(error => console.log(error))
 })
-app.listen(8080, () => console.log('server is running!'))
+app.listen(8080, () => console.log('server is running, You are ready to Go!'))
