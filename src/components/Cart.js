@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import './cart.css'
 import { formateCurrency, formateTotal } from './utils'
 import Fade from 'react-reveal/Fade'
-
-export class Cart extends Component {
-    constructor() {
-        super()
+import { connect } from 'react-redux'
+import {removeFromCart} from '../redux/Actions'
+class Cart extends Component {
+    constructor(props) {
+        super(props)
         this.state = {
             showCheckOut: false,
             name: '',
@@ -41,19 +42,17 @@ export class Cart extends Component {
     }
 
     render() {
-        const { cart } = this.props
-
         return (
             <>
                 <div className=" cart_header mt-3 pb-3 border-bottom border-1 border-secondary">
-                    {cart.length === 0 ? <div> Cart is Empty </div> :
-                        <div className="mb-1">You have {cart.length} itmes in cart</div>
+                    {this.props.cart.length === 0 ? <div> Cart is Empty </div> :
+                        <div className="mb-1">You have {this.props.cart.length} itmes in cart</div>
                     }
                 </div>
                 <div className="cart-container">
                     <Fade left cascade>
                     <ul className="cartItems list-unstyled">
-                        {cart.map((item) => {
+                        {this.props.cart?.map((item) => {
                             return <li key={item._id} className=" cartitem d-flex flex-sm-column flex-lg-row justify-content-between align-items-center p-2 m-1">
                                 <div className=''>
                                     <img src={item.image} alt={item.title} />
@@ -76,9 +75,9 @@ export class Cart extends Component {
                     </Fade>
                 </div>
 
-                {cart.length > 0 &&
+                {this.props.cart.length > 0 &&
                     <div className="cart_total border-top border-1 border-dark  p-2 d-flex justify-content-end align-items-center">
-                        <span className="mx-2 text-dark fw-bold">Total : {formateCurrency(cart.reduce((a, c) => {
+                        <span className="mx-2 text-dark fw-bold">Total : {formateCurrency(this.props.cart.reduce((a, c) => {
                             return a += (c.count * c.price)
                         }, 0))}</span>
                         
@@ -87,7 +86,7 @@ export class Cart extends Component {
                         >Proceed</button>
                     </div>
                 }
-                {(cart.length > 0 && this.state.showCheckOut) && 
+                {(this.props.cart.length > 0 && this.state.showCheckOut) && 
                 <Fade right cascade>
                 <div>
                     <form action="" className="mt-5">
@@ -149,4 +148,10 @@ export class Cart extends Component {
     }
 }
 
-export default Cart
+export default connect((state) => ({
+    cart: state.cart.cartItems,
+    products: state.products.items
+}),{
+    removeFromCart
+}
+)(Cart)
