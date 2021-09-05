@@ -1,5 +1,3 @@
-import { Component } from "react";
-
 const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 const FILTER_PRODUCTS_BY_SIZE = 'FILTER_PRODUCTS_BY_SIZE';
 const ORDER_PRODUCTS_BY_Price = "ORDER_PRODUCTS_BY_Price"
