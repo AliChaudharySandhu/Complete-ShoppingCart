@@ -37,11 +37,59 @@ const Product = mongoose.model("Products", new mongoose.Schema({
     }
 }))
 
+const Order = mongoose.model("Orders", new mongoose.Schema({
+    _id :{
+        type: String,
+        default : shortid.generate
+    },
+    email : String,
+    name: String,
+    address: String,
+    total: Number,
+    cart: [
+        {
+            _id: String,
+            title: String,
+            price: Number,
+            count: Number
+        },
+    ],
+}, {
+    timestamps : true
+}
+))
+
 // ---------------- defining req body Parsers
 app.use(express.json())
 app.use(cors())
 
-//---------------- definiing Api routes from server
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+//-------------------------------- Server Apis ---------------
+
+//----------- Orders
+
+app.post("/api/orders", async (req, res) => {
+    if (
+      !req.body.name ||
+      !req.body.email ||
+      !req.body.address ||
+      !req.body.total ||
+      !req.body.cart
+    ) {
+      return res.send({ message: "Data is required." });
+    }
+    const order = await new Order(req.body).save();
+    res.send(order);
+  });
+
+
+
+//---------------- Products
 // app.get("/api/products/", async (req, res) =>{
 //     const products = await Product.find({})
 //     res.send(products)

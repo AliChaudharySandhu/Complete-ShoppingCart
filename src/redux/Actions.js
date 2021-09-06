@@ -3,9 +3,42 @@ const FILTER_PRODUCTS_BY_SIZE = 'FILTER_PRODUCTS_BY_SIZE';
 const ORDER_PRODUCTS_BY_Price = "ORDER_PRODUCTS_BY_Price"
 const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+const CREATE_ORDER = 'CREATE_ORDER';
+const CLEAR_ORDER = 'CLEAR_ORDER';
+const CLEAR_CART = 'CLEAR_CART';
+const CLEAR_LOCALSTORAGE = 'CLEAR_LOCALSTORAGE';
+
 
 
 //===================== Action Creators ==============================
+
+//=============Orders Action Creators ==============
+
+const createOrder = (order) => (dispatch) => {
+    fetch("http://localhost:8080/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({ type: CREATE_ORDER, payload: data });
+        dispatch({ type: CLEAR_CART });
+      }).catch(error => console.log(error))
+}
+
+
+const clearOrder = () => dispatch =>{
+    dispatch({
+        type: CLEAR_ORDER
+    })
+    localStorage.clear("cartItems");
+}
+
+
+
 
 //=============Products Action Creators ==============
 const fetchProducts = () => async(dispatch) =>{
@@ -100,9 +133,15 @@ export {
     ORDER_PRODUCTS_BY_Price,
     REMOVE_FROM_CART,
     ADD_TO_CART,
+    CREATE_ORDER,
+    CLEAR_ORDER,
+    CLEAR_CART,
+    CLEAR_LOCALSTORAGE,
     sizeFilter,
     fetchProducts,
     sortFilter,
     addToCart,
-    removeFromCart
+    removeFromCart,
+    createOrder,
+    clearOrder
 }
