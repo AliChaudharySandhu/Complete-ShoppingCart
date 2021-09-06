@@ -4,3 +4,23 @@
 .cartitem > div img{
     width: 100%;
 }
+.order_ul{
+    max-width: 500px;
+    width: 100%;
+}
+.order_ul li {
+    display: flex;
+    margin-bottom: 8px;
+}
+.order_ul > li > div:first-child {
+    width: 20%;
+    font-weight: bold!important;
+}
+.order_ul li:last-child div:last-child {
+    font-weight: normal!important;
+    width: 80%!important;
+
+}
+.order_ul > li div:last-child {
+    width: 80%;
+}

@@ -1,6 +1,6 @@
 // from feature 1 new//
 import React from 'react'
-import Data from '../data/data.json'
+// import Data from '../data/data.json'
 import Products from './Products';
 import Filter from './Filter'
 import Cart from './Cart';
@@ -9,45 +9,45 @@ import Cart from './Cart';
 
 export class Main extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            products: Data.products,
-            size: "",
-            sort: "",
-            cart: localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")): [],
-        }
-        // this.handleSort = this.handleSort.bind(this)
-        // this.handleSize = this.handleSize.bind(this)
-    }
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         products: Data.products,
+    //         size: "",
+    //         sort: "",
+    //         cart: localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")): [],
+    //     }
+    //     // this.handleSort = this.handleSort.bind(this)
+    //     // this.handleSize = this.handleSize.bind(this)
+    // }
 
 
-    addToCart = (product) => {
-        console.log(product)
-        const cartItems = this.state.cart.slice();
-        let alreadyInCart = false;
-        cartItems.forEach((item) => {
-            if(item._id === product._id){
-                item.count++
-                alreadyInCart = true
-            }  
-        }) 
-            if(!alreadyInCart){ 
-                cartItems.push({...product, count : 1})
-            }
+    // addToCart = (product) => {
+    //     console.log(product)
+    //     const cartItems = this.state.cart.slice();
+    //     let alreadyInCart = false;
+    //     cartItems.forEach((item) => {
+    //         if(item._id === product._id){
+    //             item.count++
+    //             alreadyInCart = true
+    //         }  
+    //     }) 
+    //         if(!alreadyInCart){ 
+    //             cartItems.push({...product, count : 1})
+    //         }
             
         
-        this.setState({cart : cartItems})
-        localStorage.setItem("cart", JSON.stringify(cartItems))
-    }
-    removeFromCart = (item) =>{
-        const afterRemoveCart = this.state.cart.filter((cartItem) =>{
-            return item._id !== cartItem._id
+    //     this.setState({cart : cartItems})
+    //     localStorage.setItem("cart", JSON.stringify(cartItems))
+    // }
+    // removeFromCart = (item) =>{
+    //     const afterRemoveCart = this.state.cart.filter((cartItem) =>{
+    //         return item._id !== cartItem._id
             
-        })
-        this.setState({cart: afterRemoveCart})
-        localStorage.setItem("cart", JSON.stringify(afterRemoveCart))
-    }
+    //     })
+    //     this.setState({cart: afterRemoveCart})
+    //     localStorage.setItem("cart", JSON.stringify(afterRemoveCart))
+    // }
     // handleSort(e) {
     //     const value = e.target.value;
     //     this.setState((state) => ({

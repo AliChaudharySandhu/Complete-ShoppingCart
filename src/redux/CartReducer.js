@@ -1,9 +1,14 @@
-import {REMOVE_FROM_CART, ADD_TO_CART } from './Actions';
+import {REMOVE_FROM_CART, ADD_TO_CART, CLEAR_ORDER } from './Actions';
 
 // localStorage.getItem("cartItems")? JSON.parse(localStorage.getItem("cartItems")) : 
 
 const CartReducer = (state = {cartItems: JSON.parse(localStorage.getItem("cartItems") || '[]') }, action) =>{
 
+    if(action.type === CLEAR_ORDER){
+        return {
+            cartItems: []
+        }
+    }
     if(action.type === ADD_TO_CART){
         return {
             cartItems: action.payload.cartItems
