@@ -27,3 +27,7 @@ package.json
 package.json
 backend/node_modules
 backend/node_modules/.package-lock.json
+.firebaserc
+firebase.json
+.firebase/hosting.YnVpbGQ.cache
+.gitignore

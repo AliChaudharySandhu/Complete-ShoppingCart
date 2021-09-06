@@ -52,7 +52,6 @@ class Cart extends Component {
     }
 
     render() {
-        console.log(this.props.cart)
         const {order} = this.props;
         return (
             <>

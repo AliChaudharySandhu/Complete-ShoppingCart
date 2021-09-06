@@ -1,6 +1,7 @@
 <h1>React Complete Shopping Cart Project</h1>  
 
-**View:**
+**View:**  
+     
 <a href="#">
     <img src="./public/images/app_screen.jpg" alt="Shoping Cart" width="800" height="auto">
 </a>

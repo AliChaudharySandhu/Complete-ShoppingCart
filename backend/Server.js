@@ -40,7 +40,7 @@ const Product = mongoose.model("Products", new mongoose.Schema({
 const Order = mongoose.model("Orders", new mongoose.Schema({
     _id :{
         type: String,
-        default : shortid.generate
+        default : shortid.generate()
     },
     email : String,
     name: String,
