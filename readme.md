@@ -1,5 +1,6 @@
 <h1>React Complete Shopping Cart Project</h1>  
 
+**View:**
 <a href="#">
     <img src="./public/images/app_screen.jpg" alt="Shoping Cart" width="800" height="auto">
 </a>
@@ -24,3 +25,7 @@
     Managing Orders and Cart Operations  
 **Featue 10**  
     Setting Rect Modals
+ 
+ <hr />
+
+ <a href="https://i-m-alichaudhary.web.app/"><h5><i>Ali Chaudhary</i></h5></a>
