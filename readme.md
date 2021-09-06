@@ -1,5 +1,9 @@
 <h1>React Complete Shopping Cart Project</h1>  
 
+<a href="#">
+    <img src="/images/app_screen.jpg" alt="Shoping Cart" width="800" height="auto">
+</a>
+
 **Features 1**  
     Showing list of Products on the Homepage  
 **Feature 2**  
