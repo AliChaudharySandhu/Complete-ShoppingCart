@@ -9,9 +9,9 @@
 **Features 1**    
     Showing list of Products from the Db on the Homepage  
 **Feature 2**    
-    implementing Filter Operation on base of multiple parameters 
-**Feature 3**    
-    Setting Cart and Managing All cart operations 
+    implementing Filter Operation on base of multiple parameters  
+**Feature 3**  
+    Setting Cart and Managing All cart operations  
 **Feature 4**    
     State persistance management and Checkouts  
 **Feature 5**    
@@ -21,12 +21,12 @@
 **Feature 7**    
     Creating server APIs- Fetching Data - setting routes and controllers  
 **Feature 8**    
-    Creating Order and storing them in Mongo Cloud Storage 
+    Creating Order and storing them in Mongo Cloud Storage  
 **Feature 9**     
-      Managing Orders and Cart Operations
+      Managing Orders and Cart Operations  
 **Featue 10**     
-    Setting Rect Modals
+    Setting Rect Modals  
  
- <hr />
+ <hr />  
 
  <a href="https://i-m-alichaudhary.web.app/"><h5><i>Ali Chaudhary</i></h5></a>
