@@ -2,18 +2,18 @@
 
 **View:**  
      
-<a href="https://react-shoping-cart570.web.app/">
+<a href="https://memories-project570.web.app/">
     <img src="./public/images/app_screen.jpg" alt="Shoping Cart" width="800" height="auto">
 </a>
 
 **Features 1**  
-    Showing list of Products on the Homepage  
+    Showing list of Posts on the Homepage  
 **Feature 2**  
-    implementing Filter Operation on base of multiple parameters  
+    implementing Create Post on base of multiple parameters  
 **Feature 3**  
-    Setting Cart and Managing All cart operations  
+    Setting Pagination  
 **Feature 4**  
-    State persistance management and Checkouts  
+    State persistance management  
 **Feature 5**  
     Setting up Express Node Server with Mongo Connection  
 **Feature 6**  
@@ -23,9 +23,9 @@
 **Feature 8**  
     Creating Order and storing them in Mongo Cloud Storage  
 **Feature 9**  
-    Managing Orders and Cart Operations  
+      Jwt Authentication
 **Featue 10**  
-    Setting Rect Modals
+    User Sessions and limiting Control
  
  <hr />
 
