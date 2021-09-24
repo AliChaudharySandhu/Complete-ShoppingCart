@@ -7,25 +7,25 @@
 </a>
 
 **Features 1**  
-    Showing list of Posts on the Homepage  
+    Showing list of Products from the Db on the Homepage  
 **Feature 2**  
-    implementing Create Post on base of multiple parameters  
+    implementing Filter Operation on base of multiple parameters 
 **Feature 3**  
-    Setting Pagination  
+    Setting Cart and Managing All cart operations 
 **Feature 4**  
-    State persistance management  
+    State persistance management and Checkouts  
 **Feature 5**  
     Setting up Express Node Server with Mongo Connection  
 **Feature 6**  
     Implementing Redux - Creating Store Combine Reducers, Action Creators  
 **Feature 7**  
-    Creating server APIs- Fetching Data - settinf routes and controllers  
+    Creating server APIs- Fetching Data - setting routes and controllers  
 **Feature 8**  
-    Creating Order and storing them in Mongo Cloud Storage  
+    Creating Order and storing them in Mongo Cloud Storage 
 **Feature 9**  
-      Jwt Authentication
+      Managing Orders and Cart Operations
 **Featue 10**  
-    User Sessions and limiting Control
+    Setting Rect Modals
  
  <hr />
 
